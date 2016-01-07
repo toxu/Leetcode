@@ -18,6 +18,7 @@ class Solution(object):
     		for i in range(1, len(num)+1):
     			current_string = num[0:i]
     			next_string = num[i:]
+
     			if len(current_string) > 1 and current_string[0] == '0':
     				return
     			if len(solution) == 0:
