@@ -29,3 +29,19 @@ class Solution(object):
         if len(preorder)==0 or len(inorder) == 0:
             return None
         return helper(preorder, inorder)
+
+        def helper(pre_s, pre_e, in_s, in_e):
+            if pre_s > pre_e or in_s > in_e:
+                return None
+            if pre_s == pre_e:
+                return TreeNode(preorder[pre_s])
+            root = TreeNode(preorder[pre_s])
+            index = inorder[in_s, in_e].index(preorder[pre_s])
+
+            root.left = helper(pre_s+1, pre_s+1 + index-in_s, in_s, index-1)
+            root.right = helper(pre_s + 1 + index-in_s+1, pre_e, index+1, in_e)
+            return root
+
+        if len(preorder)==0 or len(inorder) == 0:
+            return None
+        return helper(0, len(preorder)-1, 0, len(inorder)-1)
